@@ -45,7 +45,6 @@ function App() {
             <div className="buttonContainer">
                 {languages.map((language) => (
                     <Button
-                        style={{ margin: '5px 5px 5px 0', padding: '0 5px', width: '40px' }}
                         className={selectedLanguage === language ? 'active' : null}
                         key={language}
                         onClick={() => setselectedLanguage(language)}
@@ -54,8 +53,8 @@ function App() {
                     </Button>
                 ))}
             </div>
-            <div class="card my-2">
-                <div class="card-body mx-auto">
+            <div className="card my-2">
+                <div className="card-body mx-auto">
                     <h2 className="mx-auto">
                         Wikipedia: <span>Sheryl Sandberg</span>
                     </h2>
