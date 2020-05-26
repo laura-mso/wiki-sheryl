@@ -60,7 +60,7 @@ function App() {
                     </div>
                 </div>
             </div>
-            {data.loading && <div>Please wait, the page is loading...</div>}
+            {data.loading && <div class="loader mx-auto mt-5"></div>}
             {data.result && <div id="content" dangerouslySetInnerHTML={{ __html: data.result }} />}
         </div>
     );
