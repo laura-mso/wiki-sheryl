@@ -42,22 +42,22 @@ function App() {
 
     return (
         <div className="container">
-            <div className="buttonContainer">
-                {languages.map((language) => (
-                    <Button
-                        className={selectedLanguage === language ? 'active' : null}
-                        key={language}
-                        onClick={() => setselectedLanguage(language)}
-                    >
-                        {language}
-                    </Button>
-                ))}
-            </div>
             <div className="card my-2">
                 <div className="card-body mx-auto">
-                    <h2 className="mx-auto">
+                    <h2>
                         Wikipedia: <span>Sheryl Sandberg</span>
                     </h2>
+                    <div className="buttonContainer">
+                        {languages.map((language) => (
+                            <Button
+                                className={selectedLanguage === language ? 'active' : null}
+                                key={language}
+                                onClick={() => setselectedLanguage(language)}
+                            >
+                                {language}
+                            </Button>
+                        ))}
+                    </div>
                 </div>
             </div>
             {data.loading && <div>Please wait, the page is loading...</div>}
