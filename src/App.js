@@ -5,8 +5,6 @@ import { useAsync } from 'react-async-hook';
 import { Button } from 'react-bootstrap';
 import './App.css';
 
-// Alternative link, saved for later: // 'https://en.wikipedia.org/w/api.php?action=query&origin=*&prop=extracts&explaintext&pageids=1624080&format=json'
-
 const languages = ['de', 'en', 'es', 'fr', 'it', 'nl', 'pl', 'pt', 'sv', 'tr'];
 
 function App() {
@@ -16,7 +14,6 @@ function App() {
         return languages.includes(language) ? language : 'en';
     };
     const [selectedLanguage, setselectedLanguage] = useState(setInitialLanguage());
-    // setselectedLanguage('de');
 
     const baseUrl = `https://${selectedLanguage}.wikipedia.org`;
     const url =
@@ -48,7 +45,7 @@ function App() {
             <div className="buttonContainer">
                 {languages.map((language) => (
                     <Button
-                        style={{ marginRight: '5px', padding: '0 5px', width: '40px' }}
+                        style={{ margin: '5px 5px 5px 0', padding: '0 5px', width: '40px' }}
                         className={selectedLanguage === language ? 'active' : null}
                         key={language}
                         onClick={() => setselectedLanguage(language)}
@@ -57,8 +54,15 @@ function App() {
                     </Button>
                 ))}
             </div>
+            <div class="card my-2">
+                <div class="card-body mx-auto">
+                    <h2 className="mx-auto">
+                        Wikipedia: <span>Sheryl Sandberg</span>
+                    </h2>
+                </div>
+            </div>
             {data.loading && <div>Please wait, the page is loading...</div>}
-            {data.result && <div dangerouslySetInnerHTML={{ __html: data.result }} />}
+            {data.result && <div id="content" dangerouslySetInnerHTML={{ __html: data.result }} />}
         </div>
     );
 }
