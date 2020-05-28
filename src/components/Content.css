@@ -1,0 +1,3 @@
+/* It looks fine only with bootstrap without these 2 imports, feel free to comment out: */
+@import '../css/wikipedia_germany.css';
+@import '../css/wikipedia_global.css';

@@ -2,9 +2,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import i18next from 'i18next';
 import React from 'react';
 import { useAsync } from 'react-async-hook';
-import { Button } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import './App.css';
+import Content from './components/Content';
 
 const languageCodes = ['de', 'en', 'es', 'fr', 'it', 'nl', 'pl', 'pt', 'sv', 'tr'];
 // Feel free to replace the topic with "Albert Einstein"
@@ -46,19 +46,24 @@ function App() {
                     </h2>
                     <div className="buttonContainer">
                         {languageCodes.map((language) => (
-                            <Button
-                                className={language === languageCode ? 'active' : undefined}
+                            <button
+                                type="button"
+                                className={language === languageCode ? 'active btn btn-primary' : 'btn btn-primary'}
                                 key={language}
                                 onClick={() => i18n.changeLanguage(language)}
                             >
                                 {language}
-                            </Button>
+                            </button>
                         ))}
                     </div>
                 </div>
             </div>
             {data.loading && <div className="loader mx-auto mt-5"></div>}
-            {data.result && <div id="content" dangerouslySetInnerHTML={{ __html: data.result }} />}
+            {data.result && (
+                <div id="content">
+                    <Content content={data.result} />
+                </div>
+            )}
             {data.error && <div className="mt-5">{t('errors.notFound')}</div>}
         </div>
     );

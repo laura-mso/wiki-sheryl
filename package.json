@@ -13,7 +13,6 @@
         "i18next-http-backend": "^1.0.12",
         "react": "^16.13.1",
         "react-async-hook": "^3.6.1",
-        "react-bootstrap": "^1.0.1",
         "react-dom": "^16.13.1",
         "react-i18next": "^11.5.0",
         "react-scripts": "3.4.1"
