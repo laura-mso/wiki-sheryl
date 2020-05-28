@@ -13,7 +13,7 @@ const topic = 'Sheryl Sandberg';
 function App() {
     const { t, i18n } = useTranslation();
 
-    let languageCode = i18next.language;
+    let languageCode = i18next.language.slice(0, 2);
 
     const baseUrl = `https://${languageCode}.wikipedia.org`;
     const url =
