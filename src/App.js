@@ -7,11 +7,11 @@ import { useTranslation } from 'react-i18next';
 import './App.css';
 
 const languageCodes = ['de', 'en', 'es', 'fr', 'it', 'nl', 'pl', 'pt', 'sv', 'tr'];
+// Feel free to replace the topic with "Albert Einstein"
+const topic = 'Sheryl Sandberg';
 
 function App() {
     const { t, i18n } = useTranslation();
-    // Feel free to replace the topic with "Albert Einstein"
-    const topic = 'Sheryl Sandberg';
 
     let languageCode = i18next.language;
 
@@ -41,7 +41,6 @@ function App() {
         <div className="container">
             <div className="card my-2">
                 <div className="card-body mx-auto">
-                    <p>Translation test: {t('title')}</p>
                     <h2>
                         Wikipedia: <span>{topic}</span>
                     </h2>
@@ -60,7 +59,7 @@ function App() {
             </div>
             {data.loading && <div className="loader mx-auto mt-5"></div>}
             {data.result && <div id="content" dangerouslySetInnerHTML={{ __html: data.result }} />}
-            {data.error && <div className="mt-5">Sorry we were not able to find "{topic}" on Wikipedia.</div>}
+            {data.error && <div className="mt-5">{t('errors.notFound')}</div>}
         </div>
     );
 }
