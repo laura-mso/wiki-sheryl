@@ -8,6 +8,8 @@ import './App.css';
 const languages = ['de', 'en', 'es', 'fr', 'it', 'nl', 'pl', 'pt', 'sv', 'tr'];
 
 function App() {
+    // Feel free to replace the topic with "Albert Einstein"
+    const topic = 'Sheryl Sandberg';
     const setInitialLanguage = () => {
         let language = detectBrowserLanguage().slice(0, 2);
         language = 'de';
@@ -23,7 +25,7 @@ function App() {
             origin: '*',
             action: 'parse',
             disableeditsection: true,
-            page: 'Sheryl Sandberg',
+            page: topic,
             format: 'json',
         });
 
@@ -39,13 +41,14 @@ function App() {
     };
 
     const data = useAsync(fetchSherylData, [selectedLanguage]);
+    console.log(data);
 
     return (
         <div className="container">
             <div className="card my-2">
                 <div className="card-body mx-auto">
                     <h2>
-                        Wikipedia: <span>Sheryl Sandberg</span>
+                        Wikipedia: <span>{topic}</span>
                     </h2>
                     <div className="buttonContainer">
                         {languages.map((language) => (
@@ -60,8 +63,9 @@ function App() {
                     </div>
                 </div>
             </div>
-            {data.loading && <div class="loader mx-auto mt-5"></div>}
+            {data.loading && <div className="loader mx-auto mt-5"></div>}
             {data.result && <div id="content" dangerouslySetInnerHTML={{ __html: data.result }} />}
+            {data.error && <div className="mt-5">Sorry we were not able to find "{topic}" on Wikipedia.</div>}
         </div>
     );
 }
