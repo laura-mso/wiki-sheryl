@@ -1,3 +1,21 @@
-/* It looks fine only with bootstrap without these 2 imports, feel free to comment out: */
 @import '../css/wikipedia_germany.css';
 @import '../css/wikipedia_global.css';
+
+.infobox.biography.vcard,
+.infobox.infobox_v3.large {
+    margin: 10px 3vw !important;
+    width: auto !important;
+    max-width: 300px;
+}
+
+div.thumbinner {
+    padding: 0px;
+}
+
+.images {
+    margin: auto;
+}
+
+.navbox {
+    display: none;
+}
