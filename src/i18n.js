@@ -13,8 +13,8 @@ i18n
     .init({
         load: 'languageOnly',
         fallbackLng: 'en',
-        debug: true,
-        // The location is not relevant for my wikipedia example:
+        debug: false,
+        // I only focus on the language here and not the location:
         cleanCode: true,
 
         react: {

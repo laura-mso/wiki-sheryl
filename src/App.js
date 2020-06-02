@@ -1,5 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import i18next from 'i18next';
 import React from 'react';
 import { useAsync } from 'react-async-hook';
 import { useTranslation } from 'react-i18next';
@@ -13,7 +12,7 @@ const topic = 'Sheryl Sandberg';
 function App() {
     const { t, i18n } = useTranslation();
 
-    let languageCode = i18next.language.slice(0, 2);
+    let languageCode = i18n.language.slice(0, 2);
 
     const baseUrl = `https://${languageCode}.wikipedia.org`;
     const url =
@@ -47,6 +46,7 @@ function App() {
                     <div className="buttonContainer">
                         {languageCodes.map((language) => (
                             <button
+                                id={language}
                                 type="button"
                                 className={language === languageCode ? 'active btn btn-primary' : 'btn btn-primary'}
                                 key={language}
