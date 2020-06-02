@@ -14,12 +14,18 @@ describe('App component Unit Tests', () => {
     beforeEach(() => {
         componentApp = mount(<App />);
     });
-    it('should render 10 buttons', () => {
+    it('should have 10 buttons', () => {
         expect(componentApp.find('button')).toHaveLength(10);
     });
     it('should switch to another language on button click', () => {
         const button = componentApp.find('button').first();
         button.simulate('click');
         expect(button.hasClass('active'));
+    });
+    it('should contain loader', () => {
+        expect(componentApp.find('.loader')).toHaveLength(1);
+    });
+    it('should contain content', () => {
+        expect(componentApp.find('#content')).toBeTruthy();
     });
 });

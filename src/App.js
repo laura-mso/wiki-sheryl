@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import { useAsync } from 'react-async-hook';
 import { useTranslation } from 'react-i18next';
+import { fetchTopicData } from './api/getTopicData';
 import './App.css';
 import Content from './components/Content';
 
@@ -26,15 +27,7 @@ function App() {
             format: 'json',
         });
 
-    const fetchSherylData = async () => {
-        const data = await fetch(url);
-        const jsonData = await data.json();
-        // Hacky way to fix the external wikipedia links:
-        const result = jsonData.parse.text['*'].replace(/href="\//g, `href="https://${languageCode}.wikipedia.org/`);
-        return result;
-    };
-
-    const data = useAsync(fetchSherylData, [languageCode]);
+    const data = useAsync(() => fetchTopicData(url, languageCode), [url, languageCode]);
 
     return (
         <div className="container">
@@ -46,7 +39,6 @@ function App() {
                     <div className="buttonContainer">
                         {languageCodes.map((language) => (
                             <button
-                                id={language}
                                 type="button"
                                 className={language === languageCode ? 'active btn btn-primary' : 'btn btn-primary'}
                                 key={language}
