@@ -51,11 +51,7 @@ function App() {
                 </div>
             </div>
             {data.loading && <div className="loader mx-auto mt-5"></div>}
-            {data.result && (
-                <div id="content">
-                    <Content content={data.result} />
-                </div>
-            )}
+            {data.result && <Content content={data.result} />}
             {data.error && <div className="mt-5">{t('errors.notFound')}</div>}
         </div>
     );

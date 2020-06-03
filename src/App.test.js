@@ -26,6 +26,6 @@ describe('App component Unit Tests', () => {
         expect(componentApp.find('.loader')).toHaveLength(1);
     });
     it('should contain content', () => {
-        expect(componentApp.find('#content')).toBeTruthy();
+        expect(componentApp.find('Content')).toBeTruthy();
     });
 });
